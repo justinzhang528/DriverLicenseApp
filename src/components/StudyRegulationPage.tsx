@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {newspaper,accessibility} from 'ionicons/icons';
 import signImg from "../json/signPath.json";
 import {
     IonHeader,
@@ -7,7 +8,8 @@ import {
     IonContent,
     IonCard,
     IonButtons,
-    IonBackButton
+    IonBackButton,
+    IonIcon
 } from '@ionic/react';
 
 function StudyRegulationPage() {
@@ -25,12 +27,14 @@ function StudyRegulationPage() {
                 <IonButtons slot="start">
                     <IonBackButton></IonBackButton>
                 </IonButtons>
-                <IonTitle>Study Signs</IonTitle>
+                <IonTitle>
+                    <IonIcon icon={newspaper}></IonIcon>&nbsp;&nbsp;Study Regulations
+                </IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
                 {Array.from({length: dataCounts}, (_, i) => (
-                    <div className="ion-text-center">
+                    <div className="ion-text-center" key={i}>
                         <IonCard>          
                             <h4>No. {zeroPad(i+1,3)}</h4>
                             <img src={getImgPath(zeroPad(i+1,3))} style={{width: '50%'}}></img>

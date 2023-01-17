@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import {listCircle} from 'ionicons/icons';
 import { useIonRouter } from '@ionic/react';
-import { IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonButton, IonBackButton, IonRadioGroup, IonRadio, IonItem, useIonAlert, useIonToast  } from '@ionic/react';
+import { IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonButton, IonBackButton, IonRadioGroup, IonRadio, IonItem, IonIcon, useIonAlert, useIonToast  } from '@ionic/react';
+import { chevronForward } from 'ionicons/icons';
 import signImg from "../json/signPath.json";
 
 function MultiChoiceSignPage() {
@@ -59,7 +61,7 @@ function MultiChoiceSignPage() {
 
   const nextHandler = () => {    
     setSelectedValue('0');
-    if(problemNum==dataCounts){
+    if(problemNum===dataCounts){
       alert('ပြီးဆုံးပါပြီ'+' '+'စုစုပေါင်းရမှတ်: ' + score+' ');
       router.push('/mockTestpage');
       console.log('finish')
@@ -87,14 +89,14 @@ function MultiChoiceSignPage() {
   };
 
   const onOkButtonClick = () => {
-    if(selectedValue == '0'){
+    if(selectedValue === '0'){
       showToast();
       return;
     }    
     let headerMessage = 'မှားသည်';
     let subHeaderMessage = 'အဖြေမှန်: ' + problems[problemNum-1].rightAns;    
     let scoreMessage = 'ရမှတ်: ' + score;
-    if(selectedValue == String(problems[problemNum-1].rightAns)){
+    if(selectedValue === String(problems[problemNum-1].rightAns)){
       setScore(score + 1);
       headerMessage = 'မှန်သည်';
       subHeaderMessage = '';
@@ -110,11 +112,13 @@ function MultiChoiceSignPage() {
         <IonButtons slot="start">
             <IonBackButton></IonBackButton>
         </IonButtons>
-        <IonTitle>Choice Sign</IonTitle>
+        <IonTitle>
+          <IonIcon icon={listCircle} />&nbsp;&nbsp;Choice Sign
+        </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding ion-text-center">
-        <h3>No. {zeroPad(problemNum,3)} </h3>
+        <h3>{problemNum}/{dataCounts} </h3>
         <IonRadioGroup class='content-center' value={selectedValue} onIonChange={(e) => setSelectedValue(e.detail.value)}>
           <IonItem color="transparent" lines="none">
             <img src={problems[problemNum-1].signPath} className="center round-border-img" style={{width: '65%'}}/>
@@ -136,7 +140,9 @@ function MultiChoiceSignPage() {
             <IonRadio slot="end" mode="md" value="4"></IonRadio>
           </IonItem>
         </IonRadioGroup><br></br>
-        <IonButton shape='round' color="dark" onClick={ () => onOkButtonClick() }>အိုကေ</IonButton>
+        <IonButton shape='round' color="light" onClick={ () => onOkButtonClick() }>
+          <IonIcon icon={chevronForward} />
+        </IonButton>
       </IonContent>
     </>
   );

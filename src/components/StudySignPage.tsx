@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {accessibility} from 'ionicons/icons';
 import signImg from "../json/signPath.json";
 import {
     IonHeader,
@@ -7,7 +8,8 @@ import {
     IonContent,
     IonCard,
     IonButtons,
-    IonBackButton
+    IonBackButton,
+    IonIcon
 } from '@ionic/react';
 
 function StudySignPage() {
@@ -25,7 +27,9 @@ function StudySignPage() {
                 <IonButtons slot="start">
                     <IonBackButton></IonBackButton>
                 </IonButtons>
-                <IonTitle>Study Signs</IonTitle>
+                <IonTitle>
+                    <IonIcon icon={accessibility}></IonIcon>&nbsp;&nbsp;Study Signs
+                </IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
