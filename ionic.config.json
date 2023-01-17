@@ -1,0 +1,7 @@
+{
+  "name": "DriverLicenseApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
