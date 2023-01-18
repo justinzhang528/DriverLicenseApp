@@ -1,5 +1,5 @@
 import React from 'react';
-import {pencil,listCircle,checkmarkCircle} from 'ionicons/icons';
+import {pencil,listCircle,checkmarkDoneCircle} from 'ionicons/icons';
 import {
   IonBackButton,
   IonButtons,
@@ -48,14 +48,14 @@ function MockTestPage() {
         </IonNavLink><br></br>
         <IonNavLink routerDirection="forward" component={() => <TrueFalseRegulationPage />}>
           <IonItem button detail lines="none" class="ion-item-border">
-            <IonIcon icon={checkmarkCircle}></IonIcon>&nbsp;&nbsp;
+            <IonIcon icon={checkmarkDoneCircle}></IonIcon>&nbsp;&nbsp;
               <IonLabel>True/False - Regulation</IonLabel>  
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
         <IonNavLink routerDirection="forward" component={() => <TrueFalseSignPage />}>
           <IonItem button detail lines="none" class="ion-item-border">
-            <IonIcon icon={checkmarkCircle}></IonIcon>&nbsp;&nbsp;
+            <IonIcon icon={checkmarkDoneCircle}></IonIcon>&nbsp;&nbsp;
             <IonLabel>True/False - Sign</IonLabel>
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
