@@ -36,7 +36,7 @@ function StudySignPage() {
                 {Array.from({length: dataCounts}, (_, i) => (
                     <div className="ion-text-center" key={i}>
                         <IonCard>          
-                            <h4>No. {zeroPad(i+1,3)}</h4>
+                            <h4>{i+1}/{dataCounts}</h4>
                             <img src={getImgPath(zeroPad(i+1,3))} style={{width: '50%'}}></img>
                             <img src={getImgPath(zeroPad(i+1,3) + 'w')} style={{width: '75%'}}></img>
                         </IonCard>

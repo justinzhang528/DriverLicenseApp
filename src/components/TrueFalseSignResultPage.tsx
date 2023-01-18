@@ -14,10 +14,10 @@ import {
     IonItem
 } from '@ionic/react';
 
-function MultiChoiceSignResultPage() {
+function TrueFalseSignResultPage() {
     const [dataCounts] = useState(signImg.dataCounts);
-    const [problems] = useState(JSON.parse(localStorage.getItem('choiceSignProblems') || '{}'));
-    const [chooseValues] = useState((localStorage.getItem('userChoiceSignValues')  || '{}').split(',').map(Number));
+    const [problems] = useState(JSON.parse(localStorage.getItem('trueFalseSignProblems') || '{}'));
+    const [chooseValues] = useState((localStorage.getItem('userTrueFalseSignValues')  || '{}').split(','));
 
     const getTotalScore = () => {
         let score = 0;
@@ -66,18 +66,9 @@ function MultiChoiceSignResultPage() {
                             <IonItem color="transparent" lines="none">
                                 <img src={problems[i].signPath} className="center round-border-img" style={{width: '65%'}}/>
                             </IonItem><br></br>
-                            <IonItem color="transparent" class="center ion-item-border" lines="none" >
-                                1.&nbsp;&nbsp;<img src={problems[i].choice1Path} style={{width: '90%'}}/>
+                            <IonItem color="transparent" class="center" lines="none" >
+                                <img src={problems[i].descPath} style={{width: '90%'}}/>
                             </IonItem><br></br>
-                            <IonItem color="transparent" class="center ion-item-border" lines="none" >
-                                2.&nbsp;&nbsp;<img src={problems[i].choice2Path} style={{width: '90%'}}/>
-                            </IonItem><br></br>
-                            <IonItem color="transparent" class="center ion-item-border" lines="none" >
-                                3.&nbsp;&nbsp;<img src={problems[i].choice3Path} style={{width: '90%'}}/>
-                            </IonItem><br></br>
-                            <IonItem color="transparent" class="center ion-item-border" lines="none" >
-                                4.&nbsp;&nbsp;<img src={problems[i].choice4Path} style={{width: '90%'}}/>
-                            </IonItem>
                             <h5>Your Answer: {chooseValues[i]} {showResultIcon(i)}</h5>
                             {showRightAnswer(i)}
                         </IonCard>
@@ -87,4 +78,4 @@ function MultiChoiceSignResultPage() {
         </>
     );
 }
-export default MultiChoiceSignResultPage;
+export default TrueFalseSignResultPage;

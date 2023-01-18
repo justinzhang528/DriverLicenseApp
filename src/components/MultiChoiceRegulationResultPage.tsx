@@ -14,10 +14,10 @@ import {
     IonItem
 } from '@ionic/react';
 
-function MultiChoiceSignResultPage() {
+function MultiChoiceRegulationResultPage() {
     const [dataCounts] = useState(signImg.dataCounts);
-    const [problems] = useState(JSON.parse(localStorage.getItem('choiceSignProblems') || '{}'));
-    const [chooseValues] = useState((localStorage.getItem('userChoiceSignValues')  || '{}').split(',').map(Number));
+    const [problems] = useState(JSON.parse(localStorage.getItem('choiceRegulationProblems') || '{}'));
+    const [chooseValues] = useState((localStorage.getItem('userChoiceRegulationValues')  || '{}').split(',').map(Number));
 
     const getTotalScore = () => {
         let score = 0;
@@ -87,4 +87,4 @@ function MultiChoiceSignResultPage() {
         </>
     );
 }
-export default MultiChoiceSignResultPage;
+export default MultiChoiceRegulationResultPage;

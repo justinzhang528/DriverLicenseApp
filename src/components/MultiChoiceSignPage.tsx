@@ -9,7 +9,7 @@ function MultiChoiceSignPage() {
   const [dataCounts] = useState(signImg.dataCounts);
   const [selectedValue, setSelectedValue] = useState('0');
   const [problemNum, setProblemNum] = useState(1);
-  const [choiceValue] = useState<string[]>([]);
+  const [chooseValues] = useState<string[]>([]);
   const zeroPad = (num: number, places: number) => {
     return String(num).padStart(places, '0');
   };
@@ -70,10 +70,10 @@ function MultiChoiceSignPage() {
           handler: () => {
             setSelectedValue('0');
             setProblemNum(1);
-            localStorage.setItem('problems',JSON.stringify(problems));
-            localStorage.setItem('choiceValues',choiceValue.toString());
-            choiceValue.splice(0);
-            const navLink = document.querySelector('#backToTestPage');
+            localStorage.setItem('choiceSignProblems',JSON.stringify(problems));
+            localStorage.setItem('userChoiceSignValues',chooseValues.toString());
+            chooseValues.splice(0);
+            const navLink = document.querySelector('#goToChoiceSignResultPage');
             (navLink as HTMLElement).click();
           },
         }
@@ -87,7 +87,7 @@ function MultiChoiceSignPage() {
       showToast();
       return;
     }
-    choiceValue.push(selectedValue);
+    chooseValues.push(selectedValue);
     if(problemNum>=dataCounts){
       showFinishAlert("Test Finish!", "", "", "View Result")
       return;
@@ -134,7 +134,7 @@ function MultiChoiceSignPage() {
         <IonButton shape='round' color="light" onClick={ () => onNextButtonClick() }>
           <IonIcon icon={chevronForward} />
         </IonButton>
-        <IonNavLink id='backToTestPage' routerDirection="forward" component={() => <MultiChoiceSignResultPage />}>
+        <IonNavLink id='goToChoiceSignResultPage' routerDirection="forward" component={() => <MultiChoiceSignResultPage />}>
         </IonNavLink>
       </IonContent>
     </>
