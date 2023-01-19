@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/DriverLicenseApp/static/css/main.a96b422c.css",
+    "main.js": "/DriverLicenseApp/static/js/main.96eaf7a2.js",
+    "static/js/738.4942c4d1.chunk.js": "/DriverLicenseApp/static/js/738.4942c4d1.chunk.js",
+    "static/js/372.1f280daf.chunk.js": "/DriverLicenseApp/static/js/372.1f280daf.chunk.js",
+    "static/js/856.97da8527.chunk.js": "/DriverLicenseApp/static/js/856.97da8527.chunk.js",
+    "static/js/851.73943948.chunk.js": "/DriverLicenseApp/static/js/851.73943948.chunk.js",
+    "static/js/22.ec8bb1bd.chunk.js": "/DriverLicenseApp/static/js/22.ec8bb1bd.chunk.js",
+    "static/js/272.2e050cb8.chunk.js": "/DriverLicenseApp/static/js/272.2e050cb8.chunk.js",
+    "static/js/841.c95e5439.chunk.js": "/DriverLicenseApp/static/js/841.c95e5439.chunk.js",
+    "static/js/186.298caf16.chunk.js": "/DriverLicenseApp/static/js/186.298caf16.chunk.js",
+    "static/js/377.50362a27.chunk.js": "/DriverLicenseApp/static/js/377.50362a27.chunk.js",
+    "service-worker.js": "/DriverLicenseApp/service-worker.js",
+    "index.html": "/DriverLicenseApp/index.html",
+    "main.a96b422c.css.map": "/DriverLicenseApp/static/css/main.a96b422c.css.map",
+    "main.96eaf7a2.js.map": "/DriverLicenseApp/static/js/main.96eaf7a2.js.map",
+    "738.4942c4d1.chunk.js.map": "/DriverLicenseApp/static/js/738.4942c4d1.chunk.js.map",
+    "372.1f280daf.chunk.js.map": "/DriverLicenseApp/static/js/372.1f280daf.chunk.js.map",
+    "856.97da8527.chunk.js.map": "/DriverLicenseApp/static/js/856.97da8527.chunk.js.map",
+    "851.73943948.chunk.js.map": "/DriverLicenseApp/static/js/851.73943948.chunk.js.map",
+    "22.ec8bb1bd.chunk.js.map": "/DriverLicenseApp/static/js/22.ec8bb1bd.chunk.js.map",
+    "272.2e050cb8.chunk.js.map": "/DriverLicenseApp/static/js/272.2e050cb8.chunk.js.map",
+    "841.c95e5439.chunk.js.map": "/DriverLicenseApp/static/js/841.c95e5439.chunk.js.map",
+    "186.298caf16.chunk.js.map": "/DriverLicenseApp/static/js/186.298caf16.chunk.js.map",
+    "377.50362a27.chunk.js.map": "/DriverLicenseApp/static/js/377.50362a27.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a96b422c.css",
+    "static/js/main.96eaf7a2.js"
+  ]
+}
