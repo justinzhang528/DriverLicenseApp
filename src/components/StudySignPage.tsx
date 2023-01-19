@@ -18,7 +18,7 @@ function StudySignPage() {
     const showToast = (msg: string) => {
         presentToast({
           message: msg,
-          duration: 100,
+          duration: 500,
           position: 'bottom'
         });
       };
