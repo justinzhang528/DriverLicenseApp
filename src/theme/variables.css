@@ -236,61 +236,6 @@ http://ionicframework.com/docs/theming/ */
 }
 
 /** my CSS Variables **/
-
-.ion-color-gradient1 {
-  --ion-color-base: var(--ion-color-gradient1);
-  --ion-color-base-rgb: var(--ion-color-gradient1-rgb);
-  --ion-color-contrast: var(--ion-color-gradient1-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-gradient1-contrast-rgb);
-  --ion-color-shade: var(--ion-color-gradient1-shade);
-  --ion-color-tint: var(--ion-color-gradient1-tint);
-}
-
-.ion-color-gradient2 {
-  --ion-color-base: var(--ion-color-gradient2);
-  --ion-color-base-rgb: var(--ion-color-gradient2-rgb);
-  --ion-color-contrast: var(--ion-color-gradient2-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-gradient2-contrast-rgb);
-  --ion-color-shade: var(--ion-color-gradient2-shade);
-  --ion-color-tint: var(--ion-color-gradient2-tint);
-}
-
-.ion-color-gradient3 {
-  --ion-color-base: var(--ion-color-gradient3);
-  --ion-color-base-rgb: var(--ion-color-gradient3-rgb);
-  --ion-color-contrast: var(--ion-color-gradient3-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-gradient3-contrast-rgb);
-  --ion-color-shade: var(--ion-color-gradient3-shade);
-  --ion-color-tint: var(--ion-color-gradient3-tint);
-}
-
-.ion-color-gradient4 {
-  --ion-color-base: var(--ion-color-gradient4);
-  --ion-color-base-rgb: var(--ion-color-gradient4-rgb);
-  --ion-color-contrast: var(--ion-color-gradient4-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-gradient4-contrast-rgb);
-  --ion-color-shade: var(--ion-color-gradient4-shade);
-  --ion-color-tint: var(--ion-color-gradient4-tint);
-}
-
-.ion-color-gradient5 {
-  --ion-color-base: var(--ion-color-gradient5);
-  --ion-color-base-rgb: var(--ion-color-gradient5-rgb);
-  --ion-color-contrast: var(--ion-color-gradient5-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-gradient5-contrast-rgb);
-  --ion-color-shade: var(--ion-color-gradient5-shade);
-  --ion-color-tint: var(--ion-color-gradient5-tint);
-}
-
-.ion-color-gradient6 {
-  --ion-color-base: var(--ion-color-gradient6);
-  --ion-color-base-rgb: var(--ion-color-gradient6-rgb);
-  --ion-color-contrast: var(--ion-color-gradient6-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-gradient6-contrast-rgb);
-  --ion-color-shade: var(--ion-color-gradient6-shade);
-  --ion-color-tint: var(--ion-color-gradient6-tint);
-}
-
 ion-title {
   font-size: large;
   text-align: center;
@@ -298,7 +243,7 @@ ion-title {
 
 .card-btn {
   width: 200px;
-  height: 100px;
+  height: 75px;
   font-size: large;
 }
 

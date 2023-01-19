@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {newspaper,accessibility} from 'ionicons/icons';
+import {accessibility, starOutline, star} from 'ionicons/icons';
 import signImg from "../json/signPath.json";
 import {
     IonHeader,
@@ -9,34 +9,81 @@ import {
     IonCard,
     IonButtons,
     IonBackButton,
-    IonIcon
+    IonIcon,
 } from '@ionic/react';
 
 function StudyRegulationPage() {
     const [dataCounts] = useState(signImg.dataCounts);
+
+    const getRegulationBookmarkedItems=()=>{
+        const str = localStorage.getItem('regulationBookmarkedItems');
+        if(str === null || str === 'NaN' || str === '')
+            return [];
+        return (str || '{}').split(',').map(Number);
+    }    
+    const [regulationbookmarkedItems, setRegulationBookmarkedItems] = useState(getRegulationBookmarkedItems());
+
+    const getIconNames = () => {
+        const result: string[] = [];
+        for(let i=0; i< dataCounts; i++){
+            if(regulationbookmarkedItems.includes(i+1)){                
+                result.push(star);
+            }else{
+                result.push(starOutline);
+            }
+        }
+        return result;
+    }
+    const [iconNames] = useState(getIconNames());
+
+    const toggleNumberInArray = (arr: number[], num: number) =>{
+        const index = regulationbookmarkedItems.indexOf(num);
+        if (index === -1) {
+            return [...arr, num];
+        } else {
+            return [...arr.slice(0, index), ...arr.slice(index + 1)];
+        }
+    }
+
     const zeroPad = (num: number, places: number) => {
         return String(num).padStart(places, '0');
-    };
+    }
+
     const getImgPath = (name: string) => {
         return window.location.origin + "/../images/sign/" + name + ".png";
     }
+
+    const onClickBookmarkIcon = (n: number) => {
+        if(regulationbookmarkedItems.includes(n)){
+            iconNames[n-1] = starOutline;
+        }else{
+            iconNames[n-1] = star;
+        }
+        setRegulationBookmarkedItems(toggleNumberInArray(regulationbookmarkedItems, n));
+    }
+
+    const onClickBackButton=()=>{
+        localStorage.setItem('regulationBookmarkedItems',regulationbookmarkedItems.toString());
+    }
+
     return (
         <>
             <IonHeader>
                 <IonToolbar>
-                <IonButtons slot="start">
+                <IonButtons onClick={onClickBackButton} slot="start">
                     <IonBackButton></IonBackButton>
                 </IonButtons>
                 <IonTitle>
-                    <IonIcon icon={newspaper}></IonIcon>&nbsp;&nbsp;Study Regulations
+                    <IonIcon icon={accessibility}></IonIcon>&nbsp;&nbsp;Study Regulations
                 </IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
                 {Array.from({length: dataCounts}, (_, i) => (
                     <div className="ion-text-center" key={i}>
-                        <IonCard>          
-                            <h4>No. {zeroPad(i+1,3)}</h4>
+                        <IonCard>
+                            <IonIcon size='small' style={{float: 'right', margin: '4px'}} icon={iconNames[i]} onClick={() => onClickBookmarkIcon(i+1)}/>
+                            <h4>&nbsp;{i+1}/{dataCounts}</h4>
                             <img src={getImgPath(zeroPad(i+1,3))} style={{width: '50%'}}></img>
                             <img src={getImgPath(zeroPad(i+1,3) + 'w')} style={{width: '75%'}}></img>
                         </IonCard>

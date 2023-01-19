@@ -32,7 +32,7 @@ function TrueFalseSignResultPage() {
     }
 
     const showRightAnswer = (i:number) => {
-        if(problems[i].rightAns != chooseValues[i]){                                
+        if(problems[i].rightAns !== chooseValues[i]){                                
             return <h5 style={{color: 'red'}}>Right Answer: {problems[i].rightAns}</h5>
         }
         return <p></p>
