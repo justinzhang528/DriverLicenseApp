@@ -1,5 +1,5 @@
 import React from 'react';
-import { book, accessibility, newspaper } from 'ionicons/icons';
+import { book, accessibility, newspaper, star } from 'ionicons/icons';
 import {
   IonBackButton,
   IonButtons,
@@ -15,6 +15,7 @@ import {
 
 import StudyRegulationPage from './StudyRegulationPage';
 import StudySignPage from './StudySignPage';
+import SignBookmarkPage from './SignBookmarkPage';
 
 function StudyPage() {
   return (
@@ -33,14 +34,21 @@ function StudyPage() {
         <IonNavLink routerDirection="forward" component={() => <StudyRegulationPage />}>
           <IonItem button detail lines="none" class="ion-item-border">
             <IonIcon icon={newspaper} />&nbsp;&nbsp;
-            <IonLabel>Regulations</IonLabel>
+            <IonLabel>Regulation</IonLabel>
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
         <IonNavLink routerDirection="forward" component={() => <StudySignPage />}>
           <IonItem button detail lines="none" class="ion-item-border">            
             <IonIcon icon={accessibility} />&nbsp;&nbsp;
-            <IonLabel>Signs</IonLabel>
+            <IonLabel>Sign</IonLabel>
+            {/* <img src="../../public/assets/imgs/word.png"/> */}
+          </IonItem>
+        </IonNavLink><br></br>
+        <IonNavLink routerDirection="forward" component={() => <SignBookmarkPage />}>
+          <IonItem button detail lines="none" class="ion-item-border">            
+            <IonIcon icon={star} />&nbsp;&nbsp;
+            <IonLabel>Sign Bookmark</IonLabel>
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink>

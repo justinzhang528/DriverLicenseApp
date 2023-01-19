@@ -10,9 +10,19 @@ import {
     IonButtons,
     IonBackButton,
     IonIcon,
+    useIonToast
 } from '@ionic/react';
 
 function StudyRegulationPage() {
+    const [presentToast] = useIonToast();
+    const showToast = (msg: string) => {
+        presentToast({
+          message: msg,
+          duration: 100,
+          position: 'bottom'
+        });
+      };
+
     const [dataCounts] = useState(signImg.dataCounts);
 
     const getRegulationBookmarkedItems=()=>{
@@ -56,8 +66,10 @@ function StudyRegulationPage() {
     const onClickBookmarkIcon = (n: number) => {
         if(regulationbookmarkedItems.includes(n)){
             iconNames[n-1] = starOutline;
+            showToast('Removed From Bookmark');
         }else{
             iconNames[n-1] = star;
+            showToast('Added To Bookmark');
         }
         setRegulationBookmarkedItems(toggleNumberInArray(regulationbookmarkedItems, n));
     }
@@ -74,7 +86,7 @@ function StudyRegulationPage() {
                     <IonBackButton></IonBackButton>
                 </IonButtons>
                 <IonTitle>
-                    <IonIcon icon={accessibility}></IonIcon>&nbsp;&nbsp;Study Regulations
+                    <IonIcon icon={accessibility}></IonIcon>&nbsp;&nbsp;Study Regulation
                 </IonTitle>
                 </IonToolbar>
             </IonHeader>

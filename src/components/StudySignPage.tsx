@@ -10,10 +10,21 @@ import {
     IonButtons,
     IonBackButton,
     IonIcon,
+    useIonToast
 } from '@ionic/react';
 
-function StudySignPage() {
+function StudySignPage() {    
+    const [presentToast] = useIonToast();
+    const showToast = (msg: string) => {
+        presentToast({
+          message: msg,
+          duration: 100,
+          position: 'bottom'
+        });
+      };
+
     const [dataCounts] = useState(signImg.dataCounts);
+
     const getSignBookmarkedItems=()=>{
         const str = localStorage.getItem('signBookmarkedItems');
         if(str === null || str === 'NaN' || str === '')
@@ -55,8 +66,10 @@ function StudySignPage() {
     const onClickBookmarkIcon = (n: number) => {
         if(signBookmarkedItems.includes(n)){
             iconNames[n-1] = starOutline;
+            showToast('Removed From Bookmark');
         }else{
             iconNames[n-1] = star;
+            showToast('Added To Bookmark');
         }
         setBookmarkedItems(toggleNumberInArray(signBookmarkedItems, n));
     }
@@ -73,7 +86,7 @@ function StudySignPage() {
                     <IonBackButton></IonBackButton>
                 </IonButtons>
                 <IonTitle>
-                    <IonIcon icon={accessibility}></IonIcon>&nbsp;&nbsp;Study Signs
+                    <IonIcon icon={accessibility}></IonIcon>&nbsp;&nbsp;Study Sign
                 </IonTitle>
                 </IonToolbar>
             </IonHeader>
