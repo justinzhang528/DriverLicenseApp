@@ -17,13 +17,18 @@ import MultiChocieRegulationPage from './MultiChocieRegulationPage';
 import MultiChoiceSignPage from './MultiChoiceSignPage';
 import TrueFalseRegulationPage from './TrueFalseRegulationPage';
 import TrueFalseSignPage from './TrueFalseSignPage';
+import { AdMob } from '@capacitor-community/admob';
 
 function MockTestPage() {
+  const onBackButtonClick=()=>{
+    AdMob.resumeBanner();
+  }
+
   return (
     <>
       <IonHeader>
         <IonToolbar>
-          <IonButtons slot="start">
+          <IonButtons onClick={onBackButtonClick} slot="start">
             <IonBackButton></IonBackButton>
           </IonButtons>
           <IonTitle>

@@ -12,6 +12,7 @@ import {
     IonIcon,
     useIonToast
 } from '@ionic/react';
+import { AdMob } from '@capacitor-community/admob';
 
 function StudySignPage() {    
     const [presentToast] = useIonToast();
@@ -76,8 +77,9 @@ function StudySignPage() {
 
     const onClickBackButton=()=>{
         localStorage.setItem('signBookmarkedItems',signBookmarkedItems.toString());
+        AdMob.resumeBanner();
     }
-
+    
     return (
         <>
             <IonHeader>

@@ -11,6 +11,7 @@ import {
     IonIcon,
     useIonToast
 } from '@ionic/react';
+import { AdMob } from '@capacitor-community/admob';
 
 function SignBookmarkPage() {
     const [presentToast] = useIonToast();
@@ -46,6 +47,7 @@ function SignBookmarkPage() {
 
     const onClickBackButton=()=>{
         localStorage.setItem('signBookmarkedItems',signBookmarkedItems.toString());
+        AdMob.resumeBanner();
     }
 
     return (
