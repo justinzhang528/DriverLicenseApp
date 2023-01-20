@@ -17,7 +17,7 @@ function SignBookmarkPage() {
     const showToast = () => {
         presentToast({
           message: 'Removed From Bookmark',
-          duration: 500,
+          duration: 100,
           position: 'bottom'
         });
       };
