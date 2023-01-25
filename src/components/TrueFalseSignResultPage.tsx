@@ -23,7 +23,7 @@ function TrueFalseSignResultPage() {
         let score = 0;
         let n = 0;
         for (var problem of problems) {
-            if(problem.rightAns == chooseValues[n]){
+            if(problem.rightAns === chooseValues[n]){
                 score += 1;
             }
             n += 1;

@@ -18,7 +18,7 @@ function SignBookmarkPage() {
     const showToast = () => {
         presentToast({
           message: 'Removed From Bookmark',
-          duration: 100,
+          duration: 300,
           position: 'bottom'
         });
       };
@@ -47,6 +47,9 @@ function SignBookmarkPage() {
 
     const onClickBackButton=()=>{
         localStorage.setItem('signBookmarkedItems',signBookmarkedItems.toString());
+        if(localStorage.getItem('isAdsFree') === 'true'){
+            return;
+        }
         AdMob.resumeBanner();
     }
 
@@ -66,7 +69,7 @@ function SignBookmarkPage() {
                 {signBookmarkedItems.map((i) => (
                     <div className="ion-text-center" key={i}>
                         <IonCard>
-                            <IonIcon size='small' style={{float: 'right', margin: '4px'}} icon={trashBin} onClick={() => onDeleteClick(i)}/>
+                            <IonIcon size='large' style={{float: 'right', margin: '4px'}} icon={trashBin} onClick={() => onDeleteClick(i)}/>
                             <h4>&nbsp;</h4>
                             <img src={getImgPath(zeroPad(i,3))} style={{width: '50%'}}></img>
                             <img src={getImgPath(zeroPad(i,3) + 'w')} style={{width: '75%'}}></img>

@@ -15,12 +15,16 @@ import {
 
 import StudyRegulationPage from './StudyRegulationPage';
 import StudySignPage from './StudySignPage';
+import RegulationBookmarkPage from './RegulationBookmarkPage';
 import SignBookmarkPage from './SignBookmarkPage';
 import { AdMob, AdOptions } from '@capacitor-community/admob';
 
 function StudyPage() {
 
   const showInterstitial = async () => {
+    if(localStorage.getItem('isAdsFree') === 'true'){
+      return;
+    }
     AdMob.hideBanner();
     const options: AdOptions = {
       adId: 'ca-app-pub-3940256099942544/4411468910', // demo ad unit id
@@ -54,6 +58,13 @@ function StudyPage() {
           <IonItem button detail lines="none" class="ion-item-border">            
             <IonIcon icon={accessibility} />&nbsp;&nbsp;
             <IonLabel>Sign</IonLabel>
+            {/* <img src="../../public/assets/imgs/word.png"/> */}
+          </IonItem>
+        </IonNavLink><br></br>
+        <IonNavLink onClick={showInterstitial} routerDirection="forward" component={() => <RegulationBookmarkPage />}>
+          <IonItem button detail lines="none" class="ion-item-border">            
+            <IonIcon icon={star} />&nbsp;&nbsp;
+            <IonLabel>Regulation Bookmark</IonLabel>
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>

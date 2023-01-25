@@ -4,6 +4,7 @@ import { IonNavLink, IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, Io
 import { chevronForward } from 'ionicons/icons';
 import signImg from "../json/signPath.json";
 import TrueFalseRegulationResultPage from './TrueFalseRegulationResultPage';
+import { AdMob } from '@capacitor-community/admob';
 
 function TrueFalseRegulationPage() {
   const [dataCounts] = useState(signImg.dataCounts);
@@ -93,11 +94,18 @@ function TrueFalseRegulationPage() {
     setProblemNum(problemNum+1);
   }
 
+  const onBackButtonClick = () => {
+    if(localStorage.getItem('isAdsFree') === 'true'){
+      return;
+    }
+    AdMob.resumeBanner();
+  }
+
   return (
     <>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
+        <IonButtons onClick={onBackButtonClick} slot="start">
             <IonBackButton></IonBackButton>
         </IonButtons>
         <IonTitle>

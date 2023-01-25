@@ -19,7 +19,7 @@ function StudyRegulationPage() {
     const showToast = (msg: string) => {
         presentToast({
           message: msg,
-          duration: 100,
+          duration: 300,
           position: 'bottom'
         });
       };
@@ -77,6 +77,9 @@ function StudyRegulationPage() {
 
     const onClickBackButton=()=>{
         localStorage.setItem('regulationBookmarkedItems',regulationbookmarkedItems.toString());
+        if(localStorage.getItem('isAdsFree') === 'true'){
+            return;
+        }
         AdMob.resumeBanner();
     }
 
@@ -96,7 +99,7 @@ function StudyRegulationPage() {
                 {Array.from({length: dataCounts}, (_, i) => (
                     <div className="ion-text-center" key={i}>
                         <IonCard>
-                            <IonIcon size='small' style={{float: 'right', margin: '4px'}} icon={iconNames[i]} onClick={() => onClickBookmarkIcon(i+1)}/>
+                            <IonIcon size='large' style={{float: 'right', margin: '4px'}} icon={iconNames[i]} onClick={() => onClickBookmarkIcon(i+1)}/>
                             <h4>&nbsp;{i+1}/{dataCounts}</h4>
                             <img src={getImgPath(zeroPad(i+1,3))} style={{width: '50%'}}></img>
                             <img src={getImgPath(zeroPad(i+1,3) + 'w')} style={{width: '75%'}}></img>

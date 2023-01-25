@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {pencil,listCircle,checkmarkDoneCircle} from 'ionicons/icons';
 import {
   IonBackButton,
@@ -17,18 +17,43 @@ import MultiChocieRegulationPage from './MultiChocieRegulationPage';
 import MultiChoiceSignPage from './MultiChoiceSignPage';
 import TrueFalseRegulationPage from './TrueFalseRegulationPage';
 import TrueFalseSignPage from './TrueFalseSignPage';
-import { AdMob } from '@capacitor-community/admob';
+import { AdMob, RewardAdOptions } from '@capacitor-community/admob';
 
 function MockTestPage() {
-  const onBackButtonClick=()=>{
-    AdMob.resumeBanner();
+
+  const showRewardVideo = async () => {
+    if(localStorage.getItem('isAdsFree') === 'true'){
+      return;
+    }
+    AdMob.hideBanner();
+    const options: RewardAdOptions = {
+      adId: 'ca-app-pub-3940256099942544/1712485313', // demo ad unit id
+      isTesting: true,
+    };
+    await AdMob.prepareRewardVideoAd(options);
+    await AdMob.showRewardVideoAd();
+  };
+
+  const reduceLife=()=>{
+    let life = Number(localStorage.getItem('life'));
+    if(life>0)
+      life = life - 1;
+    localStorage.setItem('life',String(life));
+  }
+
+  const onEnterMockTest=()=>{
+    const life = Number(localStorage.getItem('life'));
+    if(life<=0)
+      showRewardVideo();
+      
+    reduceLife();
   }
 
   return (
     <>
       <IonHeader>
         <IonToolbar>
-          <IonButtons onClick={onBackButtonClick} slot="start">
+          <IonButtons slot="start">
             <IonBackButton></IonBackButton>
           </IonButtons>
           <IonTitle>
@@ -37,28 +62,28 @@ function MockTestPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent class="ion-padding">
-        <IonNavLink routerDirection="forward" component={() => <MultiChocieRegulationPage />}>
+        <IonNavLink onClick={onEnterMockTest} routerDirection="forward" component={() => <MultiChocieRegulationPage />}>
           <IonItem button detail lines="none" class="ion-item-border">
               <IonIcon icon={listCircle}></IonIcon>&nbsp;&nbsp;
               <IonLabel>Multiple Chocie - Regulation</IonLabel>
               {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
-        <IonNavLink routerDirection="forward" component={() => <MultiChoiceSignPage />}>
+        <IonNavLink onClick={onEnterMockTest} routerDirection="forward" component={() => <MultiChoiceSignPage />}>
           <IonItem button detail lines="none" class="ion-item-border">
             <IonIcon icon={listCircle}></IonIcon>&nbsp;&nbsp;
             <IonLabel>Multiple Chocie - Sign</IonLabel>
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
-        <IonNavLink routerDirection="forward" component={() => <TrueFalseRegulationPage />}>
+        <IonNavLink onClick={onEnterMockTest} routerDirection="forward" component={() => <TrueFalseRegulationPage />}>
           <IonItem button detail lines="none" class="ion-item-border">
             <IonIcon icon={checkmarkDoneCircle}></IonIcon>&nbsp;&nbsp;
               <IonLabel>True/False - Regulation</IonLabel>  
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
-        <IonNavLink routerDirection="forward" component={() => <TrueFalseSignPage />}>
+        <IonNavLink onClick={onEnterMockTest} routerDirection="forward" component={() => <TrueFalseSignPage />}>
           <IonItem button detail lines="none" class="ion-item-border">
             <IonIcon icon={checkmarkDoneCircle}></IonIcon>&nbsp;&nbsp;
             <IonLabel>True/False - Sign</IonLabel>

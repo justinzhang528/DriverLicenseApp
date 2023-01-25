@@ -4,6 +4,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Main from './main'
 import { useEffect } from 'react';
 import {AdMob} from '@capacitor-community/admob';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,6 +34,57 @@ const App: React.FC = () => {
       initializeForTesting: true,
     });
   }, []);
+  
+  const scheduleNotificationEveryDay = async () => {
+    // Set the date and time for the notification
+    const notificationDate = new Date();
+    notificationDate.setHours(21);
+    notificationDate.setMinutes(0);
+    notificationDate.setSeconds(0);
+
+    // Schedule the notification
+    await LocalNotifications.schedule({
+      notifications: [
+        {
+          title: 'DriverLicense',
+          body: 'Time to Study!',
+          id: 1,
+          schedule: { at: notificationDate, every: 'day'},
+        },
+      ]
+    });
+  }  
+  
+  const scheduleNotificationOnSpecificTime = async (hour: number, day: number) => {
+    // Set the date and time for the notification
+    const notificationDate = new Date();
+    notificationDate.setHours(hour);
+    notificationDate.setMinutes(0);
+    notificationDate.setSeconds(0);
+
+    // Schedule the notification
+    await LocalNotifications.schedule({
+      notifications: [
+        {
+          title: 'DriverLicense',
+          body: 'Time to Study!',
+          id: 1,
+          schedule: { at: notificationDate, on: {weekday: day}},
+        },
+      ]
+    });
+  } 
+
+  LocalNotifications.requestPermissions().then(permission => {
+    if(permission){
+        console.log('Permission granted');
+        scheduleNotificationEveryDay();
+        scheduleNotificationOnSpecificTime(10,7);
+        scheduleNotificationOnSpecificTime(10,1);
+    }else{
+        console.log('Permission not granted');
+    }
+  });
 
   return (
     <IonApp>

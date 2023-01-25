@@ -4,6 +4,7 @@ import { IonNavLink, IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, Io
 import { chevronForward } from 'ionicons/icons';
 import signImg from "../json/signPath.json";
 import MultiChoiceRegulationResultPage from './MultiChoiceRegulationResultPage';
+import { AdMob } from '@capacitor-community/admob';
 
 function MultiChocieRegulationPage() {
   const [dataCounts] = useState(signImg.dataCounts);
@@ -96,11 +97,18 @@ function MultiChocieRegulationPage() {
     setProblemNum(problemNum+1);
   }
 
+  const onClickBackButton = () => {
+    if(localStorage.getItem('isAdsFree') === 'true'){
+      return;
+    }
+    AdMob.resumeBanner();
+  }
+
   return (
     <>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
+        <IonButtons onClick={onClickBackButton} slot="start">
             <IonBackButton></IonBackButton>
         </IonButtons>
         <IonTitle>
