@@ -15,6 +15,7 @@ function MultiChocieRegulationPage() {
     return String(num).padStart(places, '0');
   };
 
+  // generate a random array of 4 numbers, ranging from 0 to 'count', 'exist' must exist in array
   const generateRandomArray = (count: number, exist: number) => {
     let array = Array.from({length: count}, (_, i) => i + 1);
     const existIndex = array.indexOf(exist);
