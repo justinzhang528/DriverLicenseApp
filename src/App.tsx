@@ -28,6 +28,9 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => {
+
+  window.screen.orientation.lock('portrait');
+
   useEffect(() => {
     AdMob.initialize({
       requestTrackingAuthorization: true,
