@@ -13,9 +13,9 @@ import {
   IonIcon
 } from '@ionic/react';
 
-import StudyRegulationPage from './StudyRegulationPage';
+import StudyRulePage from './StudyRulePage';
 import StudySignPage from './StudySignPage';
-import RegulationBookmarkPage from './RegulationBookmarkPage';
+import RuleBookmarkPage from './RuleBookmarkPage';
 import SignBookmarkPage from './SignBookmarkPage';
 import { AdMob, AdOptions } from '@capacitor-community/admob';
 
@@ -47,10 +47,10 @@ function StudyPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent class="ion-padding">
-        <IonNavLink onClick={showInterstitial} routerDirection="forward" component={() => <StudyRegulationPage />}>
+        <IonNavLink onClick={showInterstitial} routerDirection="forward" component={() => <StudyRulePage />}>
           <IonItem button detail lines="none" class="ion-item-border">
             <IonIcon icon={newspaper} />&nbsp;&nbsp;
-            <IonLabel>Regulation</IonLabel>
+            <IonLabel>Rule</IonLabel>
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
@@ -61,10 +61,10 @@ function StudyPage() {
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
-        <IonNavLink onClick={showInterstitial} routerDirection="forward" component={() => <RegulationBookmarkPage />}>
+        <IonNavLink onClick={showInterstitial} routerDirection="forward" component={() => <RuleBookmarkPage />}>
           <IonItem button detail lines="none" class="ion-item-border">            
             <IonIcon icon={star} />&nbsp;&nbsp;
-            <IonLabel>Regulation Bookmark</IonLabel>
+            <IonLabel>Rule Bookmark</IonLabel>
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>

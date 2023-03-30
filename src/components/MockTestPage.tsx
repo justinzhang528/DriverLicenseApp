@@ -13,9 +13,9 @@ import {
   IonIcon
 } from '@ionic/react';
 
-import MultiChocieRegulationPage from './MultiChocieRegulationPage';
+import MultiChocieRulePage from './MultiChocieRulePage';
 import MultiChoiceSignPage from './MultiChoiceSignPage';
-import TrueFalseRegulationPage from './TrueFalseRegulationPage';
+import TrueFalseRulePage from './TrueFalseRulePage';
 import TrueFalseSignPage from './TrueFalseSignPage';
 import { AdMob, RewardAdOptions } from '@capacitor-community/admob';
 
@@ -62,10 +62,10 @@ function MockTestPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent class="ion-padding">
-        <IonNavLink onClick={onEnterMockTest} routerDirection="forward" component={() => <MultiChocieRegulationPage />}>
+        <IonNavLink onClick={onEnterMockTest} routerDirection="forward" component={() => <MultiChocieRulePage />}>
           <IonItem button detail lines="none" class="ion-item-border">
               <IonIcon icon={listCircle}></IonIcon>&nbsp;&nbsp;
-              <IonLabel>Multiple Chocie - Regulation</IonLabel>
+              <IonLabel>Multiple Chocie - Rule</IonLabel>
               {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
@@ -76,10 +76,10 @@ function MockTestPage() {
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
-        <IonNavLink onClick={onEnterMockTest} routerDirection="forward" component={() => <TrueFalseRegulationPage />}>
+        <IonNavLink onClick={onEnterMockTest} routerDirection="forward" component={() => <TrueFalseRulePage />}>
           <IonItem button detail lines="none" class="ion-item-border">
             <IonIcon icon={checkmarkDoneCircle}></IonIcon>&nbsp;&nbsp;
-              <IonLabel>True/False - Regulation</IonLabel>  
+              <IonLabel>True/False - Rule</IonLabel>  
             {/* <img src="../../public/assets/imgs/word.png"/> */}
           </IonItem>
         </IonNavLink><br></br>
